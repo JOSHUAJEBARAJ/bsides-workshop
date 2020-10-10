@@ -96,7 +96,7 @@ $ docker exec -it webserver bash
 
 ![image](img/shell.png)
 
-### Network
+### docker network
 
 Docker container has the capabilities to create a network with some drivers like **host**, **bridge**, **macvlan**, **overlay**, and **none** by default but it's possible to add another network plugins like weave2, etc. If you run the containers, by default it will use **bridge** as the network but you can also create another network with a custom name and attach it to your container.
 
@@ -119,7 +119,7 @@ $ docker inspect my-custom
 
 ![image](img/network.png)
 
-### Volume
+### docker volume
 
 Volume is a command to create a volume that the container used to store data because docker is immutable then we need to use the volume or build the image repeated if have any changes in the container and docker volume have a driver that we can use to define a volume like local, brtfs, nfs, etc. In this section, we will create a new volume and attach it to containers then verify the file is storing in volume when we removing or stopping the container.
 
@@ -172,7 +172,8 @@ $ docker top webserver
 
 ![image](img/top.png)
 
-### Build
+### docker build
+
 You’ve done to learn the basics how to operate docker using CLI, now we will create our custom docker image by creating Dockerfile.
 
 ```
@@ -182,6 +183,7 @@ ENV MYVAR=”hello”
 RUN apt-get update 
 RUN echo “hello world” > /usr/share/nginx/html/hello.html
 EXPOSE 80/tcp
+$ docker build -t mynginx .
 ``` 
 
 ![image](img/dockerfile.png)
